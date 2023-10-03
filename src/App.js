@@ -45,6 +45,8 @@ import Message from './components/Message';
 import Cookies from 'js-cookie';
 
 function App() {
+
+
   const [isAuthenticated, setIsAuthenticated] = useState(!!getToken());
 
   // This function will be called after successful login
@@ -79,7 +81,10 @@ function App() {
 
 function getToken() {
   // Retrieving the session token from cookies
-  return Cookies.get('sessionToken');
+  //return Cookies.get('sessionToken');
+  const token = localStorage.getItem('access_token');
+  return token 
+
 }
 
 export default App;

@@ -34,14 +34,15 @@ function authenticate(username, password) {
         })
         .then(data => {
           // Here, `data` is the parsed response body.
-          console.log("This is the response:")
+          localStorage.setItem('access_token', data.access_token);
+/*           console.log("This is the response:")
             console.log(data)
-            if (data["logged_in"] === true) {
+            if () {
                 console.log("Logging in!")
                 onLogin()
             } else {
                 console.log("bad username or password")
-            }
+            } */
           
         })
         .catch(error => {
