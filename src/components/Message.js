@@ -8,9 +8,10 @@ const App = () => {
     useEffect(() => {
         fetch('http://127.0.0.1:5000/api/message', {
             method: 'GET',
+            credentials: 'include',
             headers: {
                 'Authorization': `Bearer ${token}`,
-            },
+            }
         }) // Replace with your API endpoint
             .then(response => response.json())
             .then(data => setText(data.message));
@@ -37,6 +38,12 @@ const App = () => {
             });
     };
 
+    const logout = () => {
+        console.log("removing jwt token")
+        localStorage.removeItem('access_token');
+        window.location.reload();
+    }
+
 
     return (
         <div>
@@ -47,6 +54,7 @@ const App = () => {
                 cols="50"
             />
             <button onClick={handleSave}>Save Text</button>
+            <button onClick={logout}>Log Out</button>
         </div>
     );
 };

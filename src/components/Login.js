@@ -35,6 +35,7 @@ function authenticate(username, password) {
         .then(data => {
           // Here, `data` is the parsed response body.
           localStorage.setItem('access_token', data.access_token);
+          window.location.reload();
 /*           console.log("This is the response:")
             console.log(data)
             if () {
